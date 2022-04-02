@@ -97,8 +97,35 @@ flutter:
     - gambar/tesla/belakangtesla.png
     - gambar/tesla/dashboardtesla.png
     - gambar/tesla/kursitesla.png
+    - gambar/rangerover.png
+    - gambar/rangerover/rangebelakang.png
+    - gambar/rangerover/rangedashboard.png
+    - gambar/rangerover/rangedepan.png
+    - gambar/rangerover/rangekursi.png
+    - gambar/rangerover/rangesamping.png
+    - gambar/ft86.png
+    - gambar/ft/ftdepan.png
+    - gambar/ft/ftbelakang.png
+    - gambar/ft/ftngepot.png
+    - gambar/ft/ftdashboard.png
+    - gambar/ft/ftmesin.png
+    - gambar/raize.png
+    - gambar/raize/raizedepan.png
+    - gambar/raize/raizebelakang.png
+    - gambar/raize/raizedashboard.png
+    - gambar/raize/raizekursi.png
+    - gambar/sonet.png
+    - gambar/sonet/sonetkursi.png
+    - gambar/sonet/sonetdepan.png
+    - gambar/sonet/sonetdashboard.png
+    - gambar/sonet/sonetbagasi.png
+    - gambar/mini/minidepan.png
+    - gambar/mini/minibelakang.png
+    - gambar/mini/minidashboard.png
+    - gambar/mini/minikursi.png
+    - gambar/mini.png
 
-  # To add assets to your application, add an assets section, like this:
+        # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -4,19 +4,49 @@ import 'package:carslist/model/cars_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget {
+class Screen extends StatelessWidget {
+  const Screen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset(
-          "gambar/logo/logoappbar.png",
-          fit: BoxFit.contain,
-          height: 32,
+        title: Align(
+          alignment: Alignment.center,
+          child: Image.asset(
+            "gambar/logo/logoappbar.png",
+            fit: BoxFit.contain,
+            height: 32,
+          ),
         ),
         backgroundColor: Colors.blueGrey,
       ),
-      backgroundColor: Colors.black38,
+      backgroundColor: Colors.black,
+      body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth <= 600) {
+          return MainScreen();
+        } else if (constraints.maxWidth <= 700) {
+          return GridCars(gridCount: 2);
+        } else if (constraints.maxWidth <= 1000) {
+          return GridCars(gridCount: 3);
+        } else if (constraints.maxWidth <= 1190){
+          return GridCars(gridCount: 4);
+        } else if (constraints.maxWidth <= 1350){
+          return GridCars(gridCount: 5);
+        } else {
+          return GridCars(gridCount: 6);
+        }
+      }),
+    );
+  }
+}
+
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
           Container(
@@ -30,14 +60,15 @@ class MainScreen extends StatelessWidget {
                   fontSize: 20),
             ),
           ),
-          Card(
-            color: Colors.transparent,
+          Container(
             margin: const EdgeInsets.only(top: 70),
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: MediaQuery.of(context).size.width,
             child: CarouselSlider(
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
-                autoPlayInterval: Duration(seconds: 2),
+                autoPlayInterval: Duration(seconds: 3),
                 // enlargeCenterPage: true,
                 aspectRatio: 2,
               ),
@@ -66,19 +97,20 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 285, left: 22),
+            margin: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.40, left: 22),
             child: (const Text(
               'List Cars',
               style: TextStyle(
-                  fontFamily: 'poppins',
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300),
+                fontFamily: 'poppins',
+                color: Colors.white,
+                fontSize: 20,
+              ),
             )),
           ),
           Card(
             color: Colors.transparent,
-            margin: EdgeInsets.only(top: 320),
+            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.43),
             child: Container(
               child: ListView.builder(
                 padding: EdgeInsets.only(top: 10),
@@ -89,7 +121,7 @@ class MainScreen extends StatelessWidget {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return DetailScreen(
-                          carsdetail: datamobil,
+                          cars: datamobil,
                         );
                       }));
                     },
@@ -138,12 +170,17 @@ class MainScreen extends StatelessWidget {
                                         style: TextStyle(
                                             fontFamily: 'poppins',
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.blueGrey)),
+                                            color: Colors.blueGrey)
+                                    ),
                                     SizedBox(height: 7),
                                     Text(
                                       datamobil.release,
                                       style: TextStyle(
                                           fontFamily: 'poppins', fontSize: 14),
+                                    ),
+                                    Align(
+                                      child: FavoriteButton(),
+                                      alignment: Alignment.bottomRight,
                                     ),
                                     SizedBox(height: 10),
                                   ],
@@ -162,6 +199,110 @@ class MainScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class GridCars extends StatelessWidget {
+  final int gridCount;
+
+  GridCars({required this.gridCount});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+      isAlwaysShown: true,
+      child: Padding(
+        padding: EdgeInsets.all(8),
+        child: GridView.count(
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+          crossAxisCount: gridCount,
+          childAspectRatio: 0.54,
+          children: carsdata.map((datacarslist) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return DetailScreen(
+                      cars: datacarslist);
+                }));
+              },
+              child: Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Image.asset(
+                        datacarslist.imageAsset,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              datacarslist.name,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontFamily: 'poppins',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            datacarslist.price,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blueGrey),
+                          ),
+                          Container(
+                            alignment: Alignment.bottomRight,
+                              margin: EdgeInsets.only(bottom: 12, right: 12),
+                              child: FavoriteButton(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({Key? key}) : super(key: key);
+
+  @override
+  State<FavoriteButton> createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border,
+          color: Colors.blueGrey),
+      onPressed: () {
+        setState(() {
+          isFavorite = !isFavorite;
+        });
+      },
     );
   }
 }
