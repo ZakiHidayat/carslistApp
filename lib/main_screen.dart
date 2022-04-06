@@ -96,18 +96,18 @@ class MainScreen extends StatelessWidget {
               }).toList(),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.40, left: 22),
-            child: (const Text(
-              'List Cars',
-              style: TextStyle(
-                fontFamily: 'poppins',
-                color: Colors.white,
-                fontSize: 20,
-              ),
-            )),
-          ),
+          // Container(
+          //   margin: EdgeInsets.only(
+          //       top: MediaQuery.of(context).size.height * 0.40, left: 22),
+          //   child: (const Text(
+          //     'List Cars',
+          //     style: TextStyle(
+          //       fontFamily: 'poppins',
+          //       color: Colors.white,
+          //       fontSize: 20,
+          //     ),
+          //   )),
+          // ),
           Card(
             color: Colors.transparent,
             margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.43),
@@ -134,17 +134,14 @@ class MainScreen extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Container(
-                              child: Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: ClipRRect(
-                                    child: Image.asset(
-                                      datamobil.imageAsset,
-                                      fit: BoxFit.fill,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ClipRRect(
+                                  child: Image.asset(
+                                    datamobil.imageAsset,
                                   ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
                             ),
@@ -182,7 +179,6 @@ class MainScreen extends StatelessWidget {
                                       child: FavoriteButton(),
                                       alignment: Alignment.bottomRight,
                                     ),
-                                    SizedBox(height: 10),
                                   ],
                                 ),
                               ),

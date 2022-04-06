@@ -13,7 +13,7 @@ class DetailScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints contsraint) {
-            if (contsraint.maxWidth > 1000) {
+            if (contsraint.maxWidth > 800) {
               return DetailWeb(carsdetailweb: cars);
             } else {
               return DetailMobile(carsdetail: cars);
