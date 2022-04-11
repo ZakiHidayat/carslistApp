@@ -26,7 +26,7 @@ class DetailScreen extends StatelessWidget {
 
 class DetailMobile extends StatelessWidget {
   late final CarsData carsdetail;
-  DetailMobile({required this.carsdetail});
+  DetailMobile({Key? key, required this.carsdetail}) : super(key: key);
 
   var fontPoppins = const TextStyle(fontFamily: 'poppins');
 
@@ -41,12 +41,12 @@ class DetailMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(17),
+              margin: const EdgeInsets.all(17),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios_new_sharp,
                       color: Colors.white,
                     ),
@@ -54,7 +54,7 @@ class DetailMobile extends StatelessWidget {
                       Navigator.pop(context);
                     },
                   ),
-                  Text(
+                  const Text(
                     'Back to list',
                     style: TextStyle(
                         fontFamily: 'poppins',
@@ -68,7 +68,7 @@ class DetailMobile extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  margin: EdgeInsets.all(15),
+                  margin: const EdgeInsets.all(15),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(25),
                     child: Image.asset(
@@ -79,17 +79,17 @@ class DetailMobile extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.topRight,
-                  margin: EdgeInsets.only(top: 23, right: 23),
-                  child: FavoriteButton(),
+                  margin: const EdgeInsets.only(top: 23, right: 23),
+                  child: const FavoriteButton(),
                 ),
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: 13, bottom: 13),
+              margin: const EdgeInsets.only(top: 13, bottom: 13),
               child: Text(
                 carsdetail.name,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     fontFamily: 'poppins',
                     fontSize: 18,
                     fontWeight: FontWeight.normal,
@@ -104,7 +104,7 @@ class DetailMobile extends StatelessWidget {
               //     color: Colors.white.withOpacity(0.10),
               //   ),
               // ]),
-              margin: EdgeInsets.all(18),
+              margin: const EdgeInsets.all(18),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -114,46 +114,46 @@ class DetailMobile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(top: 25, bottom: 20),
+                      margin: const EdgeInsets.only(top: 25, bottom: 20),
                       child: Column(
                         children: <Widget>[
-                          Icon(
+                          const Icon(
                             Icons.calendar_today_rounded,
                             color: Colors.black,
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(carsdetail.release,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontFamily: 'poppins', color: Colors.black)),
                         ],
                       ),
                     ),
                     Column(
                       children: <Widget>[
-                        Icon(Icons.star_rate_rounded, color: Colors.black),
-                        SizedBox(height: 10),
+                        const Icon(Icons.star_rate_rounded, color: Colors.black),
+                        const SizedBox(height: 10),
                         Text(carsdetail.star,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: 'poppins', color: Colors.black))
                       ],
                     ),
                     Column(
                       children: <Widget>[
-                        Icon(Icons.monetization_on_rounded,
+                        const Icon(Icons.monetization_on_rounded,
                             color: Colors.black),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(carsdetail.price,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: 'poppins', color: Colors.black))
                       ],
                     ),
                     Column(
                       children: <Widget>[
-                        Icon(Icons.precision_manufacturing_rounded,
+                        const Icon(Icons.precision_manufacturing_rounded,
                             color: Colors.black),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(carsdetail.madeby,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: 'poppins', color: Colors.black))
                       ],
                     )
@@ -162,8 +162,8 @@ class DetailMobile extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(16),
-              child: Text(
+              margin: const EdgeInsets.all(16),
+              child: const Text(
                 'Overview',
                 style: TextStyle(
                     fontFamily: 'poppins',
@@ -173,13 +173,13 @@ class DetailMobile extends StatelessWidget {
               ),
             ),
             Container(
-                margin: EdgeInsets.only(left: 12),
+                margin: const EdgeInsets.only(left: 12),
                 height: 150,
                 child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: carsdetail.imageUrls.map((urlgambar) {
                       return Padding(
-                        padding: EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(urlgambar),
@@ -187,8 +187,8 @@ class DetailMobile extends StatelessWidget {
                       );
                     }).toList())),
             Container(
-              margin: EdgeInsets.all(16),
-              child: Text(
+              margin: const EdgeInsets.all(16),
+              child: const Text(
                 'Deskripsi',
                 style: TextStyle(
                     fontFamily: 'poppins',
@@ -198,19 +198,19 @@ class DetailMobile extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
               child: Text(
                 carsdetail.desc,
                 textAlign: TextAlign.start,
-                style: TextStyle(
+                style: const TextStyle(
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.normal,
                     color: Colors.white),
               ),
             ),
             Container(
-              margin: EdgeInsets.all(16),
-              child: Text(
+              margin: const EdgeInsets.all(16),
+              child: const Text(
                 'Spesifikasi',
                 style: TextStyle(
                     fontFamily: 'poppins',
@@ -220,11 +220,11 @@ class DetailMobile extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 16, bottom: 30, left: 16, right: 16),
+              margin: const EdgeInsets.only(top: 16, bottom: 30, left: 16, right: 16),
               child: Text(
                 carsdetail.spec,
                 textAlign: TextAlign.start,
-                style: TextStyle(
+                style: const TextStyle(
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.normal,
                     color: Colors.white),
@@ -248,12 +248,12 @@ class DetailWeb extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.all(17),
+          margin: const EdgeInsets.all(17),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new_sharp,
                   color: Colors.white,
                 ),
@@ -261,7 +261,7 @@ class DetailWeb extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-              Text(
+              const Text(
                 'Back to list',
                 style: TextStyle(
                     fontFamily: 'poppins',
@@ -279,7 +279,7 @@ class DetailWeb extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                      margin: EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(15),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(25),
                         child: Image.asset(
@@ -290,8 +290,8 @@ class DetailWeb extends StatelessWidget {
                     ),
                     Container(
                       alignment: Alignment.topRight,
-                      margin: EdgeInsets.only(top: 23, right: 23),
-                      child: FavoriteButton(),
+                      margin: const EdgeInsets.only(top: 23, right: 23),
+                      child: const FavoriteButton(),
                     ),
                   ],
                 ),
@@ -302,11 +302,11 @@ class DetailWeb extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 13, bottom: 13),
+                        margin: const EdgeInsets.only(top: 13, bottom: 13),
                         child: Text(
                           carsdetailweb.name,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontFamily: 'poppins',
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
@@ -322,7 +322,7 @@ class DetailWeb extends StatelessWidget {
                         //     color: Colors.white.withOpacity(0.10),
                         //   ),
                         // ]),
-                        margin: EdgeInsets.all(18),
+                        margin: const EdgeInsets.all(18),
                         child: Card(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
@@ -332,46 +332,46 @@ class DetailWeb extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
                               Container(
-                                margin: EdgeInsets.only(top: 25, bottom: 20),
+                                margin: const EdgeInsets.only(top: 25, bottom: 20),
                                 child: Column(
                                   children: <Widget>[
-                                    Icon(
+                                    const Icon(
                                       Icons.calendar_today_rounded,
                                       color: Colors.black,
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Text(carsdetailweb.release,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'poppins', color: Colors.black)),
                                   ],
                                 ),
                               ),
                               Column(
                                 children: <Widget>[
-                                  Icon(Icons.star_rate_rounded, color: Colors.black),
-                                  SizedBox(height: 10),
+                                  const Icon(Icons.star_rate_rounded, color: Colors.black),
+                                  const SizedBox(height: 10),
                                   Text(carsdetailweb.star,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'poppins', color: Colors.black))
                                 ],
                               ),
                               Column(
                                 children: <Widget>[
-                                  Icon(Icons.monetization_on_rounded,
+                                  const Icon(Icons.monetization_on_rounded,
                                       color: Colors.black),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(carsdetailweb.price,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'poppins', color: Colors.black))
                                 ],
                               ),
                               Column(
                                 children: <Widget>[
-                                  Icon(Icons.precision_manufacturing_rounded,
+                                  const Icon(Icons.precision_manufacturing_rounded,
                                       color: Colors.black),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(carsdetailweb.madeby,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'poppins', color: Colors.black))
                                 ],
                               )
@@ -380,8 +380,8 @@ class DetailWeb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(16),
-                        child: Text(
+                        margin: const EdgeInsets.all(16),
+                        child: const Text(
                           'Overview',
                           style: TextStyle(
                               fontFamily: 'poppins',
@@ -391,13 +391,13 @@ class DetailWeb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.only(left: 12),
+                          margin: const EdgeInsets.only(left: 12),
                           height: 150,
                           child: ListView(
                               scrollDirection: Axis.horizontal,
                               children: carsdetailweb.imageUrls.map((urlgambar) {
                                 return Padding(
-                                  padding: EdgeInsets.all(6),
+                                  padding: const EdgeInsets.all(6),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image.asset(urlgambar),
@@ -405,8 +405,8 @@ class DetailWeb extends StatelessWidget {
                                 );
                               }).toList())),
                       Container(
-                        margin: EdgeInsets.all(16),
-                        child: Text(
+                        margin: const EdgeInsets.all(16),
+                        child: const Text(
                           'Deskripsi',
                           style: TextStyle(
                               fontFamily: 'poppins',
@@ -416,19 +416,19 @@ class DetailWeb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(16),
+                        margin: const EdgeInsets.all(16),
                         child: Text(
                           carsdetailweb.desc,
                           textAlign: TextAlign.start,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontFamily: 'poppins',
                               fontWeight: FontWeight.normal,
                               color: Colors.white),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(16),
-                        child: Text(
+                        margin: const EdgeInsets.all(16),
+                        child: const Text(
                           'Spesifikasi',
                           style: TextStyle(
                               fontFamily: 'poppins',
@@ -438,11 +438,11 @@ class DetailWeb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 16, bottom: 30, left: 16, right: 16),
+                        margin: const EdgeInsets.only(top: 16, bottom: 30, left: 16, right: 16),
                         child: Text(
                           carsdetailweb.spec,
                           textAlign: TextAlign.start,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontFamily: 'poppins',
                               fontWeight: FontWeight.normal,
                               color: Colors.white),
