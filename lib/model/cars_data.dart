@@ -127,7 +127,6 @@ var carsdata = [
       imageUrls: [
         'gambar/ft/ftngepot.png',
         'gambar/ft/ftdepan.png',
-        'gambar/ft/ftbelakang.png',
         'gambar/ft/ftdashboard.png',
         'gambar/ft/ftmesin.png',
       ],
