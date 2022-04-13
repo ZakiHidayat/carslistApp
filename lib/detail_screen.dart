@@ -23,7 +23,6 @@ class DetailScreen extends StatelessWidget {
   }
 }
 
-
 class DetailMobile extends StatelessWidget {
   late final CarsData carsdetail;
   DetailMobile({Key? key, required this.carsdetail}) : super(key: key);
