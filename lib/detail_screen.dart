@@ -460,3 +460,4 @@ class DetailWeb extends StatelessWidget {
   }
 }
 
+
