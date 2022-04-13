@@ -64,6 +64,7 @@ class DetailMobile extends StatelessWidget {
                 ],
               ),
             ),
+
             Stack(
               children: [
                 Container(
