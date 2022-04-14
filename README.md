@@ -1,6 +1,6 @@
 # carslist
 
-A new Flutter project.
+A Submission Project ( Dicoding )
 
 ## Getting Started
 
